@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<!-- Retrieves the users first/last name from the "User" table -->
+	#{user.firstName} #{user.lastName}
+</h:head>
+<body> 
+	<!-- Creates a table of products with the product number, product name, price of product and the amount of quantity the user wants -->
+	<h:dataTable value="#{formController.service.products}" var="o">
+		<h:column>
+            <!-- Goes to the Orders table and grabs the productNumber -->
+			<f:facet name="header">ProductNumber</f:facet>
+			#{o.productNumber}
+		</h:column>
+		<h:column>
+			<!-- Goes to the Orders table and grabs the productName -->
+			<f:facet name="header">product name</f:facet>
+			#{o.productName}
+		</h:column>
+		<h:column>
+			<!-- Goes to the Orders table and grabs the products price -->
+			<f:facet name="header">price</f:facet>
+			#{o.price}
+		</h:column>
+		<h:column>
+			<!-- Goes to the Orders table and grabs the product quantity -->
+			<f:facet name="header">quantity</f:facet>
+			#{o.quantity}
+		</h:column>
+	</h:dataTable> 
+</body>
+</html>
