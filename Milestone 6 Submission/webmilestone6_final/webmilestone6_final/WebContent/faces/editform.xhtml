@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+  <h:head>
+      <h:outputStylesheet library = "CSS" name="style.css"></h:outputStylesheet>
+      
+      </h:head>
+<body> 
+
+<div class="menu">
+<h:form>
+
+<h:commandButton action="#{formController.showcreate()}" value="create product" />
+
+
+<h:commandButton action="#{formController.showindex()}" value="see all " />
+
+
+</h:form>
+</div>
+<h1> edit products below</h1>
+
+<h:form>
+<h:inputHidden value="#{product.orderNo}" />
+my products are
+
+<h:inputText value="#{product.productName}" />
+
+
+Product price 
+
+<h:inputText value="#{product.price}" />
+
+
+quantity
+<h:inputText value="#{product.quantity}" />
+
+
+order number
+<h:outputText value="#{product.orderNo}" /> 
+
+<h:commandButton action="#{formController.onSubmitEdit()}" value="ok" />
+
+
+</h:form>
+</body> 
+</html>

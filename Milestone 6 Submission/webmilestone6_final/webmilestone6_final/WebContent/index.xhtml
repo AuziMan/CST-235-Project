@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+      <h:head>
+      <h:outputStylesheet library = "CSS" name="style.css"></h:outputStylesheet>
+      
+      </h:head>
+
+<body> 
+<div class="menu">
+<h:form>
+
+<h:commandButton action="#{formController.showcreate()}" value="create product" />
+
+
+<h:commandButton action="#{formController.showindex()}" value="see all " />
+
+
+</h:form>
+</div>
+
+<h:dataTable value="#{formController.getAll()}" var="product">
+
+		<h:column>
+			<f:facet name="header">ProductNumber</f:facet>
+<h:outputText value="#{product.orderNo}" />
+</h:column>
+		<h:column>
+			<f:facet name="header">product name</f:facet>
+
+<h:outputText value="#{product.productName}" />
+</h:column>
+		<h:column>
+			<f:facet name="header">price</f:facet>
+<h:outputText value="#{product.price}" />
+
+</h:column>
+		<h:column>
+			<f:facet name="header">quantity</f:facet>
+<h:outputText value="#{product.quantity}" />
+
+
+
+</h:column>
+
+
+<h:column>
+<f:facet name="header">delete</f:facet>
+
+<h:form>  
+
+<h:commandButton action="#{formController.onDelete(product)}" value="delete" />
+</h:form>
+</h:column>
+
+
+<h:column>
+<f:facet name="header">Edit</f:facet>
+
+<h:form>  
+
+<h:commandButton action="#{formController.onShowEdit(product)}" value="edit" />
+</h:form>
+</h:column>
+	</h:dataTable> 
+
+
+
+
+
+</body> 
+</html>
